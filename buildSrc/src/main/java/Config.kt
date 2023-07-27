@@ -27,7 +27,7 @@ object Config {
     object Plugins {
         const val kotlin = "kotlin"
         const val javaLibrary = "java-library"
-        const val android = "com.android.application"
+        const val androidApplication = "com.android.application"
         const val kotlinAndroid = "kotlin-android"
         const val jetBrainkotlinAndroid = "org.jetbrains.kotlin.android"
         const val navigationSafArgs = "androidx.navigation.safeargs.kotlin"

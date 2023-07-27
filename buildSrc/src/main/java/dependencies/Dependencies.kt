@@ -8,6 +8,15 @@ object Dependencies {
         const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}"
     }
 
+    object MultiDex {
+        const val multiDex = "androidx.multidex:multidex:${Versions.multiDexVersion}"
+    }
+    object Intuit {
+        const val sdp = "com.intuit.sdp:sdp-android:${Versions.sDpSspVersion}"
+        const val ssp = "com.intuit.ssp:ssp-android:${Versions.sDpSspVersion}"
+    }
+
+
     object JavaDep {
         const val javax = "javax.inject:javax.inject:${Versions.javaxInjectVersion}"
     }
@@ -36,6 +45,9 @@ object Dependencies {
             "androidx.lifecycle:lifecycle-runtime:${Versions.lifeCycleRuntimeVersion}"
         const val lifeCycleRuntimeKtx =
             "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifeCycleRuntimeKtxVersion}"
+        const val navigationCompose =
+            "androidx.navigation:navigation-compose:${Versions.navigationCompseVersion}"
+
     }
 
     object DaggerHiltDep {

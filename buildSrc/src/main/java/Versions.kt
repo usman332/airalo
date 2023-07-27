@@ -5,12 +5,15 @@ object Versions {
     const val kotlinVersion = "1.7.20"
     const val ktLintVersion = "10.1.0"
 
+    const val multiDexVersion = "2.0.1"
+    const val sDpSspVersion = "1.0.5"
+
     // Core dependencies
     const val javaxInjectVersion = "1"
     const val coreKtxVersion = "1.3.2"
-    const val appCompatVersion = "1.2.0"
+    const val appCompatVersion = "1.6.1"
     const val materialVersion = "1.6.0"
-    const val constraintLayoutVersion = "2.0.4"
+    const val constraintLayoutVersion = "2.1.4"
 
     // Activity KTX for viewModels() dependencies
     const val activityKtxVersion = "1.1.0"
@@ -25,6 +28,7 @@ object Versions {
     const val liveDataKtxVersion = "2.2.0"
     const val lifeCycleRuntimeVersion = "2.2.0"
     const val lifeCycleRuntimeKtxVersion = "2.2.0"
+    const val navigationCompseVersion = "2.5.1"
 
     // Coroutines dependencies
     const val coroutineCoreVersion = "1.3.9"

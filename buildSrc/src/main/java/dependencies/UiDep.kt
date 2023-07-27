@@ -5,6 +5,15 @@ object UiDep {
     // Kotlin
     const val kotlin = Dependencies.KotlinDep.kotlin
 
+    //multi dex
+    const val multiDex = Dependencies.MultiDex.multiDex
+
+    // sdp ssp
+    const val sdp = Dependencies.Intuit.sdp
+    const val ssp = Dependencies.Intuit.ssp
+
+
+
     // Core
     const val coreKtx = Dependencies.CoreDep.coreKtx
     const val appCompat = Dependencies.CoreDep.appCompat
@@ -26,6 +35,7 @@ object UiDep {
     const val lifeCycleExtension = Dependencies.LifeCycleDep.lifeCycleExtension
     const val lifeCycleRuntime = Dependencies.LifeCycleDep.lifeCycleRuntime
     const val lifeCycleRuntimeKtx = Dependencies.LifeCycleDep.lifeCycleRuntimeKtx
+    const val navigationCompose = Dependencies.LifeCycleDep.lifeCycleRuntimeKtx
 
 
     // Hilt

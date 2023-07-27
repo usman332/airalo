@@ -2,7 +2,7 @@ import dependencies.UiDep
 import dependencies.RemoteDep
 
 plugins {
-    id(Config.Plugins.android)
+    id(Config.Plugins.androidApplication)
     id(Config.Plugins.kotlinAndroid)
     // id(Config.Plugins.navigationSafArgs)
     id(Config.Plugins.kotlinKapt)
@@ -66,17 +66,16 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    val multidex_version = "2.0.1"
-    implementation("androidx.multidex:multidex:$multidex_version")
+    //
     val SDP = "1.0.5"
 
     // Modules
     implementation(project(Modules.domain))
     implementation(project(Modules.data))
     implementation(project(Modules.common))
+
+    //Multi Dex
+    implementation(UiDep.multiDex)
 
     // Core Dependencies
     implementation(UiDep.kotlin)
@@ -89,21 +88,16 @@ dependencies {
     implementation(UiDep.activityKtx)
 
     /*SDP & SSP dependencies powered by intuit*/
-    implementation("com.intuit.sdp:sdp-android:$SDP")
-    implementation("com.intuit.ssp:ssp-android:$SDP")
-    
+    implementation(UiDep.sdp)
+    implementation(UiDep.ssp)
+
     // LifeCycle
-    /*UiDep.LifeCycle.forEach {
+    UiDep.LifeCycle.forEach {
         implementation(it)
-    }*/
-    implementation ("androidx.navigation:navigation-compose:2.5.1")
-    implementation(UiDep.viewModelKtx)
-    implementation(UiDep.lifeCycleExtension)
-    implementation(UiDep.lifeCycleRuntime)
-    implementation(UiDep.lifeCycleRuntimeKtx)
+    }
 
     // Network (Retrofit, OkHttp, Interceptor, Gson Converter)
-   RemoteDep.retrofit.forEach { implementation(it) }
+    RemoteDep.retrofit.forEach { implementation(it) }
 
     // Dagger-Hilt
     UiDep.DaggerHilt.forEach {
@@ -118,7 +112,6 @@ dependencies {
     }
     // Glide
     implementation(UiDep.glide)
-    implementation(project(mapOf("path" to ":data")))
     kapt(UiDep.glideKapt)
     // Timber
     implementation(UiDep.timber)
