@@ -9,7 +9,7 @@ data class CountryPackage(
     @SerializedName("image")
     var image: Image,
     @SerializedName("packages")
-    var packages: List<Package>,
+    var packages: ArrayList<PackageInfo>,
     @SerializedName("seo")
     var seo: Any,
     @SerializedName("slug")

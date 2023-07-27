@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Airalo</string>
+    <string name="popular_countries">Popular Countries</string>
+    <string name="data">data</string>
+    <string name="validity">validity</string>
+    <string name="us">"US$ "</string>
+    <string name="buy_now">"Buy now "</string>
 </resources>

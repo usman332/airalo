@@ -20,7 +20,7 @@ class PopularCountryPackagesViewModel @Inject constructor(
 ) : BaseViewModel(dispatchers) {
 
     sealed class UiState {
-        data class GetPopularCountryPackageUiState(val countryList: CountryPackage) :
+        data class GetPopularCountryPackageUiState(val countryPackage: CountryPackage) :
             UiState()
 
         data class Error(val message: String?) : UiState()

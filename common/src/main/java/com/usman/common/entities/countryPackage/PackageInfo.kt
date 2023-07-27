@@ -3,13 +3,13 @@ package com.usman.common.entities.countryPackage
 
 import com.google.gson.annotations.SerializedName
 
-data class Package(
+data class PackageInfo(
     @SerializedName("amount")
     var amount: Int,
     @SerializedName("calling_credit")
     var callingCredit: Any,
     @SerializedName("data")
-    var `data`: String,
+    var dataInfo: String,
     @SerializedName("day")
     var day: Int,
     @SerializedName("fair_usage_policy")
@@ -23,7 +23,7 @@ data class Package(
     @SerializedName("note")
     var note: Any,
     @SerializedName("operator")
-    var `operator`: Operator,
+    var operatorInfo: Operator,
     @SerializedName("price")
     var price: Double,
     @SerializedName("short_info")

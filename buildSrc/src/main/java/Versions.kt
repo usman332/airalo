@@ -31,7 +31,7 @@ object Versions {
     const val coroutineAndroidVersion = "1.3.9"
 
     //Glide dependencies
-    const val glideVersion = "4.11.0"
+    const val glideVersion = "4.15.1"
 
     // Dagger - Hilt dependencies
     const val hiltAndroidVersion = "2.47"

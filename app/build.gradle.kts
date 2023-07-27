@@ -65,11 +65,14 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.5.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     val multidex_version = "2.0.1"
     implementation("androidx.multidex:multidex:$multidex_version")
+    val SDP = "1.0.5"
+
     // Modules
     implementation(project(Modules.domain))
     implementation(project(Modules.data))
@@ -84,6 +87,11 @@ dependencies {
     implementation(UiDep.navigationFragmentKtx)
     implementation(UiDep.navigationUiKtx)
     implementation(UiDep.activityKtx)
+
+    /*SDP & SSP dependencies powered by intuit*/
+    implementation("com.intuit.sdp:sdp-android:$SDP")
+    implementation("com.intuit.ssp:ssp-android:$SDP")
+    
     // LifeCycle
     /*UiDep.LifeCycle.forEach {
         implementation(it)
