@@ -57,6 +57,8 @@ object Versions {
     // Lottie animation
     const val lottieVersion = "3.7.0"
 
+    const val mkLottieVersion = "1.4.0"
+
     // Testing
     const val junitVersion = "4.13"
     const val androidxArchCoreVersion = "2.1.0"

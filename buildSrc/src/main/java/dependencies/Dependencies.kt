@@ -93,6 +93,9 @@ object Dependencies {
     object LottieDep {
         const val lottie = "com.airbnb.android:lottie:${Versions.lottieVersion}"
     }
+    object MKLoader {
+        const val lottie = "com.tuyenmonkey:mkloader:${Versions.mkLottieVersion}"
+    }
 
     object TestDep {
         const val coroutinesTest =

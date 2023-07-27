@@ -5,4 +5,7 @@
     <string name="validity">validity</string>
     <string name="us">"US$ "</string>
     <string name="buy_now">"Buy now "</string>
+    <string name="hello">Hello</string>
+    <string name="search_data_packs_for_200_countries_and_regions">Search data packs for 200+ countries and regions</string>
+    <string name="something_went_wrong">Something went wrong</string>
 </resources>

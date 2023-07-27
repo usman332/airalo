@@ -115,8 +115,11 @@ dependencies {
     kapt(UiDep.glideKapt)
     // Timber
     implementation(UiDep.timber)
+
     // Lottie animation
     implementation(UiDep.lottie)
+
+   /* implementation(UiDep.mkLoader)*/
 
     // Test Dependencies
     testImplementation(UiDep.Test.junit)

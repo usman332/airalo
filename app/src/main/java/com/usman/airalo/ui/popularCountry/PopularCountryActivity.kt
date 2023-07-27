@@ -4,10 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.usman.airalo.Constant
+import com.usman.airalo.R
 import com.usman.airalo.databinding.ActivityPopularCountryBinding
 import com.usman.airalo.ui.base.BaseActivity
 import com.usman.airalo.ui.popularCountryPackages.PopularCountryPackageActivity
@@ -22,9 +23,6 @@ class PopularCountryActivity : BaseActivity<ActivityPopularCountryBinding>() {
     private val viewModel: PopularCountryViewModel by viewModels()
 
     lateinit var popularCountryAdapter: PopularCountryAdapter
-    /*
-        private val movieAdapter by lazy { PopularCountryAdapter() }
-    */
 
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityPopularCountryBinding =
         ActivityPopularCountryBinding.inflate(inflater)
@@ -43,21 +41,26 @@ class PopularCountryActivity : BaseActivity<ActivityPopularCountryBinding>() {
                 }
 
                 is PopularCountryViewModel.UiState.Loading -> {
-                    //showProgress()
+                    showView(binding.loader)
                 }
 
                 is PopularCountryViewModel.UiState.NotLoading -> {
-                    // hideProgress()
+                    hideView(binding.loader)
                 }
 
-                is Error -> Toast.makeText(
-                    applicationContext, it.message, Toast.LENGTH_LONG
-                ).show()
+                is Error -> {
+                    errorMessageSnackBar(it.message ?: getString(R.string.something_went_wrong))
+                }
 
-                else -> {}
+
+                else -> {
+                    errorMessageSnackBar(getString(R.string.something_went_wrong))
+
+                }
             }
         }
     }
+
 
     private fun setupRecyclerView(countryList: CountryList) {
         popularCountryAdapter =

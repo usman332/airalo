@@ -1,16 +1,14 @@
 package com.usman.airalo.ui.popularCountryPackages
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.usman.airalo.Constant
+import com.usman.airalo.R
 import com.usman.airalo.databinding.ActivityPopularCountryPackageBinding
 import com.usman.airalo.ui.base.BaseActivity
-import com.usman.airalo.ui.popularCountry.PopularCountryActivity
-import com.usman.airalo.ui.popularCountry.PopularCountryAdapter
-import com.usman.common.entities.country.CountryList
 import com.usman.common.entities.countryPackage.PackageInfo
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +19,7 @@ class PopularCountryPackageActivity : BaseActivity<ActivityPopularCountryPackage
 
     private val viewModel: PopularCountryPackagesViewModel by viewModels()
 
-    lateinit var countryPackageAdapter: CountryPackageAdapter
+    private lateinit var countryPackageAdapter: CountryPackageAdapter
 
 
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityPopularCountryPackageBinding =
@@ -29,33 +27,56 @@ class PopularCountryPackageActivity : BaseActivity<ActivityPopularCountryPackage
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setToolbarText()
+        setBackButtonListener()
         setUpObservers()
+        callCountryPackageAPI(intent.getStringExtra(Constant.EXTRA_INTENT_COUNTRY_ID)?:"singapore")
+    }
+
+    private fun setToolbarText() {
+        if (intent != null && intent.hasExtra(Constant.EXTRA_INTENT_COUNTRY_ID)) {
+            binding.txtPopularCountry.text =
+                intent.getStringExtra(Constant.EXTRA_INTENT_COUNTRY_ID)?.capitalize()
+        } else {
+            finish()
+        }
+    }
+
+    private fun callCountryPackageAPI(countryId:String) {
         viewModel.getCountryPackage("europe");
+    }
+
+    private fun setBackButtonListener() {
+        binding.imgBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     private fun setUpObservers() = with(viewModel) {
         getUiState().observe(this@PopularCountryPackageActivity) {
             when (it) {
                 is PopularCountryPackagesViewModel.UiState.GetPopularCountryPackageUiState -> {
+                    hideView(binding.loaderPackage)
 
                     setupRecyclerView(it.countryPackage.packages)
 
                 }
 
                 is PopularCountryPackagesViewModel.UiState.Loading -> {
-                    //showProgress()
+                    showView(binding.loaderPackage)
                 }
 
                 is PopularCountryPackagesViewModel.UiState.NotLoading -> {
-                    // hideProgress()
+                    hideView(binding.loaderPackage)
                 }
-
                 is Error ->
-                    Toast.makeText(
-                        applicationContext, it.message, Toast.LENGTH_LONG
-                    ).show()
+                    errorMessageSnackBar(it.message ?: getString(R.string.something_went_wrong))
 
-                else -> {}
+                else -> {
+                    errorMessageSnackBar(getString(R.string.something_went_wrong))
+
+                }
             }
         }
     }
