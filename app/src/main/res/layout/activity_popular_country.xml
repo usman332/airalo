@@ -75,7 +75,7 @@
                 android:background="@drawable/ic_search_bar_bg"
                 android:fontFamily="@font/ibm_regular"
                 android:gravity="center|start"
-                android:padding="@dimen/_4sdp"
+                android:padding="@dimen/_8sdp"
                 android:text="@string/search_data_packs_for_200_countries_and_regions"
                 android:textColor="@color/txt_color"
                 android:textSize="@dimen/_11ssp"
