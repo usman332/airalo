@@ -24,6 +24,14 @@ class PopularCountryViewModel @Inject constructor(
     dispatchers: DispatchersProvider
 ) : BaseViewModel(dispatchers) {
 
+    val post :String by lazy {
+
+        getPostData()
+    }
+
+    fun getPostData():String{
+        return  "Dummy Post data"
+    }
     /**
      * Sealed class representing different UI states of the [PopularCountryViewModel].
      */
@@ -34,6 +42,8 @@ class PopularCountryViewModel @Inject constructor(
          * @param countryList The list of popular countries.
          */
         data class GetPopularCountryUiState(val countryList: CountryList) : UiState()
+
+        data class GetPopularUiState(val countryList: Any) : UiState()
 
         /**
          * UI state representing an error with an optional [message].

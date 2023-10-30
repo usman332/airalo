@@ -55,6 +55,9 @@ class PopularCountryActivity : BaseActivity<ActivityPopularCountryBinding>() {
                     setupRecyclerView(it.countryList)
                 }
 
+                is PopularCountryViewModel.UiState.GetPopularUiState ->{
+
+                }
                 is PopularCountryViewModel.UiState.Loading -> {
                     showView(binding.loader)
                 }
